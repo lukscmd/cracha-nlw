@@ -1,0 +1,103 @@
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+body {
+  --black: hsl(240, 6%, 13%); /*criação de variável*/
+  --gray: hsl(240, 9%, 89%);
+  display: grid; /*Serve para definir como será organizado os elementos na tela*/
+  place-items: center; /*Centralizar todos os elementos do body*/
+  -webkit-font-smoothing: antialiased; /*Suavizar a fonte do texto no navegador*/
+  /*background: #263238;*/
+}
+main {
+  /*no-repeat para a imagem não se repetir. Center = Centralizar a imagem. cover para cobrir todo o fundo*/
+  background: url(images/background.svg) no-repeat center/cover;
+  width: 100vw; /*100 viewport width de todo o tamanho do dispositivo para adaptar a largura*/
+  min-height: 812px;
+  height: 100vh; /*100 viewport height de todo o tamanho do dispositivo para adaptar a altura */
+}
+.container {
+  max-width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: var(--gray);
+}
+.avatar {
+  /*(calculo REM): Verifica a largura (width) da imagem = 160px | 
+  Verifica o pixel padrão da fonte da página que é 16px | 
+  1 REM = 16px | 
+  Então temos: 160 / 16 = 10 que será o tamanho em REM do elemento que está sendo manipulado no seletor*/
+  width: 10rem;
+  margin: 11.5rem auto 0;
+  position: relative;
+}
+.avatar span {
+  /*valor absoluto serve para criar níveis de acima*/
+  position: absolute;
+  top: -15px;
+  z-index: 1; /*eixo de profundidade, serve para sobrescrever algum elemento*/
+}
+/*(> img) serve para usar como seletor apenas a imagem do primeiro nível que está sendo usada na classe*/
+.avatar > img {
+  width: 10rem;
+  height: 11.5rem;
+  /* (object-fit) especifica como o conteúdo de um elemento substituído deve ser 
+  ajustado à caixa estabelecida pela altura e largura usadas.*/
+  object-fit: cover;
+  /*Define formas para a imagem | https://bennettfeely.com/clippy*/
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+h1 {
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+}
+a {
+  margin-top: 0.5rem;
+  text-decoration: none;
+  color: rgb(206, 137, 10);
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  align-items: center;
+}
+p {
+  margin-top: 2rem;
+}
+ul {
+  margin-top: 4rem;
+  margin-bottom: 2.5rem;
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.rodape {
+  margin-top: 2rem;
+  position: relative;
+}
+.rodape span {
+  width: 15.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  object-fit: cover;
+}
+.rodape p {
+  margin-top: 2rem;
+  font-size: 0.5rem;
+  margin-bottom: -1.5rem;
+  color: #ff008e;
+}
+.rodape a > img {
+  height: 1.5rem;
+  margin-top: 1rem;
+  object-fit: cover;
+}
